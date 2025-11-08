@@ -22,25 +22,20 @@
             position: relative;
         }
 
-        .firework {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: #fff;
-            border-radius: 50%;
-            opacity: 0;
-            animation: firework-burst 1s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        /* 🌟 NAME GLOW EFFECT */
+        #greetingMessage {
+            margin-top: 20px;
+            font-size: 1.6em;
+            color: #ffe066;
+            text-shadow: 0 0 10px #ffeb3b, 0 0 18px #ff6, 0 0 25px #ff0;
+            animation: glow 1.3s infinite alternate;
         }
-
-        @keyframes firework-burst {
-            0% { transform: scale(0); opacity: 1; }
-            10% { transform: scale(1); opacity: 1; }
-            100% {
-                transform: scale(0.5);
-                opacity: 0;
-                box-shadow: 0 0 20px 5px rgba(255, 255, 0, 0.7),
-                            0 0 40px 10px rgba(255, 0, 0, 0.7),
-                            0 0 60px 15px rgba(0, 0, 255, 0.7);
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 6px #ffeb3b, 0 0 12px #ff0;
+            }
+            to {
+                text-shadow: 0 0 14px #fff176, 0 0 25px #ffe066, 0 0 40px #ffee58;
             }
         }
 
@@ -53,107 +48,12 @@
             pointer-events: none;
             z-index: 0;
         }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            background-color: rgba(13, 26, 43, 0.8);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
-            text-align: center;
-            max-width: 90%;
-            margin-top: 20px;
-            backdrop-filter: blur(5px);
-        }
-
-        h1 {
-            color: #ffeb3b;
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px #ffc107;
-        }
-
-        .gif-container {
-            margin: 20px 0;
-            border: 3px solid #00bcd4;
-            border-radius: 10px;
-            overflow: hidden;
-            display: inline-block;
-        }
-
-        .gif-container img { display: block; }
-
-        .name-input-box {
-            background-color: #212121;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
-        }
-
-        .name-input-box label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            color: #e0e0e0;
-        }
-
-        .name-input-box input[type="text"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            border: 2px solid #00bcd4;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-            font-size: 1em;
-            outline: none;
-        }
-
-        #greetingMessage { margin-top: 20px; font-size: 1.3em; color: #8bc34a; min-height: 50px; }
-
-        .share-button {
-            background-color: #25D366;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            cursor: pointer;
-            margin-top: 30px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .share-button:hover { transform: translateY(-2px); }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2em; }
-        }
     </style>
 </head>
 <body>
-    <div class="fireworks-container"></div>
-    <div class="container">
-        <h1>नया साल मुबारक हो! 🎊</h1>
 
-        <div class="gif-container">
-            <img src="newyear.gif" alt="New Year" width="200" height="200">
-        </div>
-
-        <div class="name-input-box">
-            <label for="userName">अपना नाम लिखें:</label>
-            <input type="text" id="userName" placeholder="यहाँ अपना नाम दर्ज करें">
-        </div>
-
-        <p id="greetingMessage"></p>
-
-        <button class="share-button" id="shareButton">शेयर करें</button>
-    </div>
-
-<!-- ✅ Adsterra Bottom Sticky Ad -->
-<div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; z-index:99999;">
+<!-- ✅ Adsterra Top -->
+<div style="width:100%; text-align:center; margin-bottom:10px;">
 <script type="text/javascript">
   atOptions = {
     'key' : '260974cfee46297699305b2e56a8fd71',
@@ -166,13 +66,53 @@
 <script type="text/javascript" src="//www.highperformanceformat.com/260974cfee46297699305b2e56a8fd71/invoke.js"></script>
 </div>
 
+<div class="fireworks-container" id="confettiArea"></div>
+
+<h1>🎊 नया साल मुबारक हो! 🎉</h1>
+
+<img src="newyear.gif" width="200">
+
+<div style="margin-top:20px;">
+    <input type="text" id="userName" placeholder="अपना नाम लिखें" style="padding:10px;border-radius:6px;border:none;">
+</div>
+
+<p id="greetingMessage"></p>
+
+<button id="shareButton" style="margin-top:20px;padding:12px 25px;border:none;border-radius:8px;background:#25D366;color:white;font-size:1.2em;">
+    शेयर करें
+</button>
+
+<!-- 🎉 CONFETTI SCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
 <script>
 const userNameInput = document.getElementById('userName');
 const greetingMessage = document.getElementById('greetingMessage');
+
 userNameInput.addEventListener('input', () => {
     const name = userNameInput.value.trim();
-    greetingMessage.innerHTML = name ? `${name} की तरफ से नया साल की शुभकामनाएं ✨` : '';
+
+    if (name) {
+        greetingMessage.innerHTML = `${name} की तरफ से नया साल की हार्दिक शुभकामनाएँ! ✨`;
+
+        // 🎉 Confetti Burst on Name Input
+        confetti({
+            particleCount: 60,
+            spread: 90,
+            origin: { y: 0.7 }
+        });
+
+    } else {
+        greetingMessage.innerHTML = '';
+    }
 });
+
+document.getElementById("shareButton").onclick = () => {
+    const name = userNameInput.value.trim();
+    const text = name ? `${name} की तरफ से नया साल की शुभकामनाएँ! 🎉` : `नया साल मुबारक हो! 🎉`;
+    const url = window.location.href;
+    window.location.href = `https://wa.me/?text=${encodeURIComponent(text + "\n" + url)}`;
+};
 </script>
 
 </body>
