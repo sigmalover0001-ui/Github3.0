@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>नया साल मुबारक हो!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            background-color: #0d1a2b;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: firework-burst 1s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        @keyframes firework-burst {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            10% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.5);
+                opacity: 0;
+                box-shadow: 0 0 20px 5px rgba(255, 255, 0, 0.7),
+                            0 0 40px 10px rgba(255, 0, 0, 0.7),
+                            0 0 60px 15px rgba(0, 0, 255, 0.7);
+            }
+        }
+
+        .fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(13, 26, 43, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+            text-align: center;
+            max-width: 90%;
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            color: #ffeb3b;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #ffc107;
+        }
+
+        .gif-container {
+            margin: 20px 0;
+            border: 3px solid #00bcd4;
+            border-radius: 10px;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .gif-container img {
+            display: block;
+        }
+
+        .name-input-box {
+            background-color: #212121;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+        }
+
+        .name-input-box label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #e0e0e0;
+        }
+
+        .name-input-box input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 2px solid #00bcd4;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .name-input-box input[type="text"]:focus {
+            border-color: #ffeb3b;
+            box-shadow: 0 0 8px rgba(255, 235, 59, 0.5);
+        }
+
+        #greetingMessage {
+            margin-top: 20px;
+            font-size: 1.3em;
+            color: #8bc34a;
+            min-height: 50px;
+        }
+
+        .share-button {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .share-button:hover {
+            background-color: #20BA5A;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .ad-banner-placeholder {
+            width: 468px;
+            height: 60px;
+            background-color: #1a2a3a;
+            border: 1px dashed #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            color: #aaa;
+            font-size: 0.9em;
+            text-align: center;
+            max-width: 90%;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .container {
+                padding: 15px;
+                margin-top: 10px;
+            }
+            .gif-container {
+                margin: 15px 0;
+            }
+            .name-input-box {
+                padding: 10px;
+            }
+            #greetingMessage {
+                font-size: 1.1em;
+            }
+            .share-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+            .ad-banner-placeholder {
+                width: 100%;
+                max-width: 320px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fireworks-container"></div>
+    <div class="container">
+        <h1>नया साल मुबारक हो! 🎊</h1>
+        
+        <div class="gif-container">
+            <img src="https://media.giphy.com/media/26tPcHF50mJDCUhGw/giphy.gif" alt="Happy New Year GIF" width="200" height="200">
+        </div>
+
+        <div class="name-input-box">
+            <label for="userName">अपना नाम लिखें:</label>
+            <input type="text" id="userName" placeholder="यहाँ अपना नाम दर्ज करें">
+        </div>
+
+        <p id="greetingMessage"></p>
+
+        <button class="share-button" id="shareButton">
+            <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            शेयर करें
+        </button>
+    </div>
+
+    <div class="ad-banner-placeholder">
+        आपका विज्ञापन कोड यहाँ डालें
+    </div>
+
+    <script>
+        const userNameInput = document.getElementById('userName');
+        const greetingMessage = document.getElementById('greetingMessage');
+        const shareButton = document.getElementById('shareButton');
+        const fireworksContainer = document.querySelector('.fireworks-container');
+
+        userNameInput.addEventListener('input', updateGreeting);
+
+        function updateGreeting() {
+            const name = userNameInput.value.trim();
+            if (name) {
+                greetingMessage.innerHTML = `${name} की तरफ से नया साल की हार्दिक शुभकामनाएँ! ✨`;
+            } else {
+                greetingMessage.innerHTML = '';
+            }
+        }
+
+        shareButton.addEventListener('click', async () => {
+            const name = userNameInput.value.trim();
+            const shareText = name ? 
+                `🎊 ${name} की तरफ से नया साल की हार्दिक शुभकामनाएँ! ✨` :
+                `🎊 नया साल की हार्दिक शुभकामनाएँ! ✨`;
+            
+            const shareUrl = window.location.href;
+            const fullMessage = `${shareText}\n\nइस लिंक पर क्लिक करके आप भी अपने दोस्तों को शुभकामनाएँ भेजें: ${shareUrl}`;
+
+            // Check if Web Share API is supported
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'नया साल मुबारक हो! 🎊',
+                        text: fullMessage
+                    });
+                    console.log('Content shared successfully');
+                } catch (error) {
+                    console.error('Error sharing:', error);
+                    // If user cancels, don't show error
+                    if (error.name !== 'AbortError') {
+                        fallbackShare(fullMessage);
+                    }
+                }
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                fallbackShare(fullMessage);
+            }
+        });
+
+        function fallbackShare(message) {
+            // Try to copy to clipboard
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(message).then(() => {
+                    alert('✅ संदेश कॉपी हो गया है! अब आप इसे WhatsApp या किसी भी ऐप में पेस्ट करके शेयर कर सकते हैं।');
+                }).catch(() => {
+                    showMessageDialog(message);
+                });
+            } else {
+                showMessageDialog(message);
+            }
+        }
+
+        function showMessageDialog(message) {
+            alert('कृपया इस संदेश को कॉपी करें और शेयर करें:\n\n' + message);
+        }
+
+        // Firework animation logic
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            fireworksContainer.appendChild(firework);
+
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight * 0.7;
+
+            firework.style.left = `${x}px`;
+            firework.style.top = `${y}px`;
+
+            const colors = ['#ffeb3b', '#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#00ffff'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            firework.style.boxShadow = `0 0 20px 5px ${randomColor}, 0 0 40px 10px ${colors[(colors.indexOf(randomColor) + 1) % colors.length]}, 0 0 60px 15px ${colors[(colors.indexOf(randomColor) + 2) % colors.length]}`;
+
+            firework.addEventListener('animationend', () => {
+                firework.remove();
+            });
+        }
+
+        setInterval(createFirework, 800);
+
+        // Initial greeting update
+        updateGreeting();
+    </script>
+</body>
+</html>
