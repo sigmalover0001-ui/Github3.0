@@ -33,14 +33,8 @@
         }
 
         @keyframes firework-burst {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            10% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            0% { transform: scale(0); opacity: 1; }
+            10% { transform: scale(1); opacity: 1; }
             100% {
                 transform: scale(0.5);
                 opacity: 0;
@@ -88,9 +82,7 @@
             display: inline-block;
         }
 
-        .gif-container img {
-            display: block;
-        }
+        .gif-container img { display: block; }
 
         .name-input-box {
             background-color: #212121;
@@ -118,17 +110,7 @@
             outline: none;
         }
 
-        .name-input-box input[type="text"]:focus {
-            border-color: #ffeb3b;
-            box-shadow: 0 0 8px rgba(255, 235, 59, 0.5);
-        }
-
-        #greetingMessage {
-            margin-top: 20px;
-            font-size: 1.3em;
-            color: #8bc34a;
-            min-height: 50px;
-        }
+        #greetingMessage { margin-top: 20px; font-size: 1.3em; color: #8bc34a; min-height: 50px; }
 
         .share-button {
             background-color: #25D366;
@@ -139,65 +121,15 @@
             font-size: 1.2em;
             cursor: pointer;
             margin-top: 30px;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-            transition: background-color 0.3s ease, transform 0.2s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
         }
 
-        .share-button:hover {
-            background-color: #20BA5A;
-            transform: translateY(-2px);
-        }
-
-        .whatsapp-icon {
-            width: 24px;
-            height: 24px;
-        }
-
-        .ad-banner-placeholder {
-            width: 468px;
-            height: 60px;
-            background-color: #1a2a3a;
-            border: 1px dashed #555;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 40px;
-            color: #aaa;
-            font-size: 0.9em;
-            text-align: center;
-            max-width: 90%;
-            box-sizing: border-box;
-        }
+        .share-button:hover { transform: translateY(-2px); }
 
         @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
-            .container {
-                padding: 15px;
-                margin-top: 10px;
-            }
-            .gif-container {
-                margin: 15px 0;
-            }
-            .name-input-box {
-                padding: 10px;
-            }
-            #greetingMessage {
-                font-size: 1.1em;
-            }
-            .share-button {
-                padding: 12px 25px;
-                font-size: 1.1em;
-            }
-            .ad-banner-placeholder {
-                width: 100%;
-                max-width: 320px;
-                height: 50px;
-            }
+            h1 { font-size: 2em; }
         }
     </style>
 </head>
@@ -205,9 +137,9 @@
     <div class="fireworks-container"></div>
     <div class="container">
         <h1>नया साल मुबारक हो! 🎊</h1>
-        
+
         <div class="gif-container">
-            <img src="newyear.gif" alt="Happy New Year GIF" width="200" height="200">
+            <img src="newyear.gif" alt="New Year" width="200" height="200">
         </div>
 
         <div class="name-input-box">
@@ -217,89 +149,31 @@
 
         <p id="greetingMessage"></p>
 
-        <button class="share-button" id="shareButton">
-            <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712 .227 1.36 .195 1.871 .118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" />
-            </svg>
-            शेयर करें
-        </button>
+        <button class="share-button" id="shareButton">शेयर करें</button>
     </div>
 
-    <div class="ad-banner-placeholder">
-        आपका विज्ञापन कोड यहाँ डालें
-    </div>
+<!-- ✅ Adsterra Bottom Sticky Ad -->
+<div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; z-index:99999;">
+<script type="text/javascript">
+  atOptions = {
+    'key' : '260974cfee46297699305b2e56a8fd71',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/260974cfee46297699305b2e56a8fd71/invoke.js"></script>
+</div>
 
-    <script>
-        const userNameInput = document.getElementById('userName');
-        const greetingMessage = document.getElementById('greetingMessage');
-        const shareButton = document.getElementById('shareButton');
-        const fireworksContainer = document.querySelector('.fireworks-container');
+<script>
+const userNameInput = document.getElementById('userName');
+const greetingMessage = document.getElementById('greetingMessage');
+userNameInput.addEventListener('input', () => {
+    const name = userNameInput.value.trim();
+    greetingMessage.innerHTML = name ? `${name} की तरफ से नया साल की शुभकामनाएं ✨` : '';
+});
+</script>
 
-        userNameInput.addEventListener('input', updateGreeting);
-
-        function updateGreeting() {
-            const name = userNameInput.value.trim();
-            if (name) {
-                greetingMessage.innerHTML = `${name} की तरफ से नया साल की हार्दिक शुभकामनाएँ! ✨`;
-            } else {
-                greetingMessage.innerHTML = '';
-            }
-        }
-
-        shareButton.addEventListener('click', async () => {
-            const name = userNameInput.value.trim();
-            const shareText = name ? 
-                `🎊 ${name} की तरफ से नया साल की हार्दिक शुभकामनाएँ! ✨` :
-                `🎊 नया साल की हार्दिक शुभकामनाएँ! ✨`;
-            
-            const shareUrl = window.location.href;
-            const fullMessage = `${shareText}\n\nइस लिंक पर क्लिक करके आप भी अपने दोस्तों को शुभकामनाएँ भेजें: ${shareUrl}`;
-
-            if (navigator.share) {
-                try {
-                    await navigator.share({
-                        title: 'नया साल मुबारक हो! 🎊',
-                        text: fullMessage
-                    });
-                } catch (error) {
-                    fallbackShare(fullMessage);
-                }
-            } else {
-                fallbackShare(fullMessage);
-            }
-        });
-
-        function fallbackShare(message) {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(message).then(() => {
-                    alert('✅ संदेश कॉपी हो गया है! अब आप इसे WhatsApp या किसी भी ऐप में पेस्ट करके शेयर कर सकते हैं।');
-                }).catch(() => {
-                    alert('कृपया इस संदेश को कॉपी करें और शेयर करें:\n\n' + message);
-                });
-            } else {
-                alert('कृपया इस संदेश को कॉपी करें और शेयर करें:\n\n' + message);
-            }
-        }
-
-        function createFirework() {
-            const firework = document.createElement('div');
-            firework.className = 'firework';
-            fireworksContainer.appendChild(firework);
-
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * window.innerHeight * 0.7;
-
-            firework.style.left = `${x}px`;
-            firework.style.top = `${y}px`;
-
-            firework.addEventListener('animationend', () => {
-                firework.remove();
-            });
-        }
-
-        setInterval(createFirework, 800);
-
-        updateGreeting();
-    </script>
 </body>
 </html>
