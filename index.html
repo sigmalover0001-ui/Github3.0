@@ -22,7 +22,6 @@
             position: relative;
         }
 
-        /* 🌟 NAME GLOW EFFECT */
         #greetingMessage {
             margin-top: 20px;
             font-size: 1.6em;
@@ -82,7 +81,6 @@
     शेयर करें
 </button>
 
-<!-- 🎉 CONFETTI SCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
 <script>
@@ -95,7 +93,6 @@ userNameInput.addEventListener('input', () => {
     if (name) {
         greetingMessage.innerHTML = `${name} की तरफ से नया साल की हार्दिक शुभकामनाएँ! ✨`;
 
-        // 🎉 Confetti Burst on Name Input
         confetti({
             particleCount: 60,
             spread: 90,
@@ -114,6 +111,20 @@ document.getElementById("shareButton").onclick = () => {
     window.location.href = `https://wa.me/?text=${encodeURIComponent(text + "\n" + url)}`;
 };
 </script>
+
+<!-- ✅ Adsterra Bottom (Fixed Footer, UI safe) -->
+<div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; background:#0d1a2b; padding:8px 0; z-index:999;">
+<script type="text/javascript">
+	atOptions = {
+		'key' : '260974cfee46297699305b2e56a8fd71',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/260974cfee46297699305b2e56a8fd71/invoke.js"></script>
+</div>
 
 </body>
 </html>
